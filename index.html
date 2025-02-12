@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planes de Ahorro - Autocity Villa María</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #000;
+        }
+
+        header {
+            background: black;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('car-showroom.jpg') no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: black;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: black;
+        }
+
+        .cta {
+            margin-top: 20px;
+        }
+
+        .cta button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .cta button:hover {
+            background: #555;
+        }
+
+        .features {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature img {
+            max-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .vehicles {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .vehicles h2 {
+            margin-bottom: 20px;
+        }
+
+       /*  .vehicle-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+        } */
+
+        .vehicle {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 0 0 auto;
+            width: 300px;
+        }
+
+        .vehicle img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: black;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+        /* Efecto hover para las placas */
+        .feature:hover {
+            transform: translateY(-10px);
+            /* Levantar la placa ligeramente */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            /* Sombra más pronunciada */
+        }
+
+
+        /* Estilos para los títulos */
+        .feature h3 {
+            font-size: 20px;
+            /* Tamaño del título */
+            margin-bottom: 10px;
+            /* Espacio debajo del título */
+        }
+
+        /* Estilos para los párrafos */
+        .feature p {
+            font-size: 14px;
+            /* Tamaño del texto */
+            line-height: 1.5;
+            /* Espaciado entre líneas */
+        }
+
+        /* Estilos para la sección de vehículos */
+        .vehicles {
+            text-align: center;
+            /* Centrar el contenido */
+            padding: 50px 20px;
+            /* Espaciado interno */
+            background-color: #1a1a1a;
+            /* Fondo oscuro */
+            color: #ffffff;
+            /* Texto en blanco */
+        }
+
+        /* Contenedor de los vehículos */
+        .vehicle-container {
+            display: flex;
+            /* Distribuir las imágenes en fila */
+            flex-wrap: wrap;
+            /* Permitir que las imágenes se envuelvan en varias líneas */
+            justify-content: center;
+            /* Centrar las imágenes */
+            gap: 20px;
+            /* Espacio entre las imágenes */
+        }
+
+        /* Estilos para cada vehículo */
+        .vehicle {
+            overflow: hidden;
+            /* Ocultar el desbordamiento de la imagen al hacer zoom */
+            border-radius: 10px;
+            /* Bordes redondeados */
+            border: 2px solid transparent;
+            /* Borde transparente por defecto */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            /* Transición suave */
+        }
+
+        /* Estilos para las imágenes de los vehículos */
+        .vehicle img {
+            display: block;
+            /* Eliminar espacio inferior */
+            width: 100%;
+            /* Ajustar al tamaño del contenedor */
+            height: auto;
+            /* Mantener la proporción */
+            transition: transform 0.3s ease;
+            /* Transición suave para el zoom */
+        }
+
+        /* Efecto hover para los vehículos */
+        .vehicle:hover {
+            border-color: #ffcc00;
+            /* Borde amarillo al pasar el mouse */
+            transform: scale(1.05);
+            /* Escalar ligeramente el contenedor */
+        }
+
+        .vehicle:hover img {
+            transform: scale(1.1);
+            /* Zoom en la imagen */
+        }
+
+        /* Estilos para la sección de vehículos */
+        .vehicles {
+            text-align: center;
+            /* Centrar el contenido */
+            padding: 50px 20px;
+            /* Espaciado interno */
+            background-color: #1a1a1a;
+            /* Fondo oscuro */
+            color: #ffffff;
+            /* Texto en blanco */
+        }
+
+        /* Contenedor del carrusel */
+        .vehicle-container {
+            margin: 0 auto;
+            /* Centrar el carrusel */
+            max-width: 1200px;
+            /* Ancho máximo */
+        }
+
+        /* Estilos para cada vehículo */
+        .vehicle {
+            padding: 10px;
+            /* Espaciado interno */
+            text-align: center;
+            /* Centrar la imagen */
+        }
+
+        /* Estilos para las imágenes */
+        .vehicle img {
+            max-width: 100%;
+            /* Ajustar al tamaño del contenedor */
+            height: auto;
+            /* Mantener la proporción */
+            border-radius: 10px;
+            /* Bordes redondeados */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Transición suave */
+        }
+
+        /* Efecto hover para las imágenes */
+        .vehicle:hover img {
+            transform: scale(1.05);
+            /* Zoom suave */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+            /* Sombra blanca */
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+        <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\Autocity-01.png" alt="Autocity Logo">
+    </header>
+
+    <section class="hero">
+        <h1>Conseguí tu Auto 0 KM</h1>
+        <p>Las mejores opciones de financiamiento en Villa María. Elegí tu plan y cumplí tu sueño.</p>
+        <div class="cta">
+            <button onclick="document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });">Solicitar
+                Información</button>
+        </div>
+    </section>
+    <!-- FOTOS DE PORTADA -->
+
+    <section class="features">
+        <div class="feature">
+            <img src="graficos_placa.jpeg" alt="Icono de bajo costo">
+            <h3>Bajo Costo Inicial</h3>
+            <p>Comenzá con cuotas accesibles que se adaptan a tu bolsillo.</p>
+        </div>
+        <div class="feature">
+            <img src="llavexllave.jpeg" alt="Icono de entrega rápida">
+            <h3>Entrega Garantizada</h3>
+            <p>Programá tu entrega y obtené tu vehículo cuando lo necesites.</p>
+        </div>
+        <div class="feature">
+            <img src="foto_empresarial.jpeg" alt="Icono de plan flexible">
+            <h3>Planes a Tu Medida</h3>
+            <p>Elegí el modelo y el plan que mejor se adapten a vos.</p>
+        </div>
+    </section>
+    <!-- <section class="features">
+        <div class="feature">
+            <img src="graficos_placa.jpeg" alt="Icono de bajo costo">
+            <h3>Bajo Costo Inicial</h3>
+            <p>Comenzá con cuotas accesibles que se adaptan a tu bolsillo.</p>
+        </div>
+        <div class="feature">
+            <img src="llavexllave.jpeg"
+                alt="Icono de entrega rápida">
+            <h3>Entrega Garantizada</h3>
+            <p>Programá tu entrega y obtené tu vehículo cuando lo necesites.</p>
+        </div>
+        <div class="feature">
+            <img src="foto_empresarial.jpeg" alt="Icono de plan flexible">
+            <h3>Planes a Tu Medida</h3>
+            <p>Elegí el modelo y el plan que mejor se adapten a vos.</p>
+        </div>
+    </section> -->
+
+    <section class="vehicles">
+        <h1>Nuestros vehículos</h1>
+        <h2>Fiat</h2>
+        <div class="vehicle-container">
+            <div class="vehicle" onclick="scrollToForm('Fiat Cronos')">
+                <img src="CRONOS_PLAN.png" alt="Fiat Cronos">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Mobi')">
+                <img src="MOBI_PLAN.png" alt="Fiat Mobi">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Fastback')">
+                <img src="FASTBACK_PLAN.png" alt="Fiat Fastback">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Fiorino')">
+                <img src="FIORINO_PLAN.png" alt="Fiat Fiorino">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Toro')">
+                <img src="TORO_PLAN.png" alt="Fiat Toro">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Strada')">
+                <img src="STRADA_PLAN.png" alt="Fiat Strada">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Fiat Pulse')">
+                <img src="PULSE_PLAN.png" alt="Fiat Pulse">
+            </div>
+        </div>
+    </section>
+
+    <section class="vehicles">
+        <h2>Volkswagen</h2>
+        <div class="vehicle-container">
+            <div class="vehicle" onclick="scrollToForm('Polo Track')">
+                <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\PoloTrack.jpeg" alt="Polo Track">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Nivus')">
+                <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\Nivus.jpeg" alt="Nivus">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('T-Cross')">
+                <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\Tcross.jpeg" alt="T-Cross">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Taos')">
+                <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\Taos.jpeg" alt="Taos">
+            </div>
+            <div class="vehicle" onclick="scrollToForm('Amarok')">
+                <img src="C:\Users\lukas\OneDrive\Escritorio\landing-page\Amarok.jpeg" alt="Amarok">
+            </div>
+        </div>
+    </section>
+    <!-- Formulario -->
+    <section id="form-section" style="padding: 20px; background: #f8f9fa;">
+        <h2 style="text-align: center;">Solicitá Más Información</h2>
+        <form id="contact-form" style="max-width: 600px; margin: 0 auto;">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required
+                style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required style="width: 100%; padding: 10px; margin-bottom: 10px;">
+
+            <label for="message">Consulta:</label>
+            <textarea id="message" name="message" rows="4" style="width: 100%; padding: 10px;"></textarea>
+
+            <button type="submit"
+                style="background: black; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; margin-top: 10px;">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Autocity Villa María. Todos los derechos reservados.</p>
+        <p>Asesor Comercial: Lucas Vogler</p>
+        <p>Teléfono: 3534593497 | Instagram: <a href="https://instagram.com/lucas_autocity"
+                target="_blank">@lucasvogler.vm</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contact-form").addEventListener("submit", enviarFormulario);
+        });
+
+        function enviarFormulario(event) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            let formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                phone: document.getElementById("phone").value,
+                message: document.getElementById("message").value
+            };
+
+            fetch("https://script.google.com/macros/s/AKfycbya02KSF1wvASh51pnrV_4vVwvPGgxP5_9xracfa5um5hbe7tV9WBpTJ4FrYfXmVpjd/exec", {
+                method: "POST",
+                mode: "no-cors",  // Solución rápida para evitar CORS
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.text())  // Puedes agregar esta parte para mostrar una respuesta del servidor.
+                .then(result => {
+                    alert("¡Consulta enviada con éxito!");
+                    document.getElementById("contact-form").reset();
+                })
+                .catch(error => {
+                    alert("Hubo un error. Inténtalo de nuevo.");
+                });
+        }
+
+        $(document).ready(function () {
+            $('.vehicle-container').slick({
+                dots: false, // No mostrar puntos de navegación
+                arrows: true, // Mostrar flechas de navegación
+                infinite: true, // Navegación infinita
+                speed: 300, // Velocidad de transición
+                slidesToShow: 3, // Cantidad de imágenes visibles a la vez
+                slidesToScroll: 1, // Cantidad de imágenes a desplazar
+                autoplay: false, // Autoplay desactivado
+                responsive: [
+                    {
+                        breakpoint: 768, // Para pantallas más pequeñas
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 480, // Para pantallas móviles
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+
+        function scrollToForm() {
+            const formSection = document.getElementById('form-section');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToForm(vehicleName) {
+            const formSection = document.getElementById('form-section');
+            const messageField = document.getElementById('message');
+
+            // Llenar el campo de consulta con un texto predeterminado
+            messageField.value = `Hola, estoy interesado en el vehículo ${vehicleName}.Me gustaría recibir información detallada sobre los planes de financiamiento disponibles, condiciones de entrega y cualquier promoción vigente. Quedo a la espera de su contacto para coordinar una visita o resolver cualquier consulta adicional. 
+Saludos cordiales.`;
+
+            // Desplazamiento suave hasta el formulario
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+         /*  function scrollToForm() {
+        // Selecciona la sección del formulario por su ID
+        const formSection = document.getElementById('form-section');
+        // Desplazamiento suave hasta el formulario
+        formSection.scrollIntoView({ behavior: 'smooth' }); */
+    </script>
+
+</body>
+
+</html>
