@@ -1,0 +1,8 @@
+
+url aplicacion web
+https://script.google.com/macros/library/d/1dRKd36aQRsaum_ND74IfY8AXtQT5U7G5LerDmKippC0ZL8Y_PoQJXPLX/4
+
+https://script.google.com/macros/s/AKfycby-vgtsOIF9PaFfl8jY0AO0J0py6qgDwxq60BJQuPadLqM2fA8aK3NPW7PpCkyaCtN9/exec
+
+ID de Implementacion
+AKfycby-vgtsOIF9PaFfl8jY0AO0J0py6qgDwxq60BJQuPadLqM2fA8aK3NPW7PpCkyaCtN9
